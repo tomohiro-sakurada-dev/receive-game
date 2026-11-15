@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    Unity 側のコード（Assets/Receive/Game）のコンパイル検査だけを行う。実行はしない。
+    Unity Editor が無い環境でも、型や引数の誤りを見つけるためのもの。
+    参照しているのは NuGet 上の Unity 2021.3 の参照アセンブリで、Unity 6.3 そのものではない。
+    ここで通ることは、Unity 6.3 でコンパイルが通ることの保証にはならない。
+  -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <AssemblyName>Receive.Game.Check</AssemblyName>
+    <NoWarn>$(NoWarn);NU1701;CS0618</NoWarn>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../Assets/Receive/Game/**/*.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="UnityEngine.Modules" Version="2021.3.33" IncludeAssets="compile" PrivateAssets="all" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Receive.Core/Receive.Core.csproj" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,464 @@
+/* PROJECT RECEIVE — 霧音の国の画面
+   基準の大きさは 1920 x 1080。色は 墨・夜藍・霧・生成り・灯火・朱・苔 の七つに絞る。 */
+
+.rv {
+    flex-grow: 1;
+    color: rgb(230, 224, 210);
+    font-size: 30px;
+    -unity-font: resource("Fonts/ShipporiMincho-Medium");
+    -unity-font-definition: resource("Fonts/ShipporiMincho-Medium");
+}
+
+.rv * {
+    -unity-font: resource("Fonts/ShipporiMincho-Medium");
+    -unity-font-definition: resource("Fonts/ShipporiMincho-Medium");
+}
+
+.fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.stage {
+    align-items: center;
+    justify-content: center;
+}
+
+.screen {
+    width: 1500px;
+    height: 960px;
+    flex-direction: column;
+}
+
+.fade {
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 0.7s;
+    transition-timing-function: ease-out;
+}
+
+.fade.in {
+    opacity: 1;
+}
+
+.row {
+    flex-direction: row;
+    align-items: center;
+}
+
+.col {
+    flex-direction: column;
+}
+
+.grow {
+    flex-grow: 1;
+}
+
+.center {
+    align-items: center;
+    justify-content: center;
+}
+
+.spread {
+    justify-content: space-between;
+}
+
+.wrap {
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+/* ---- 文字 ---- */
+
+.t {
+    color: rgb(230, 224, 210);
+    font-size: 30px;
+    white-space: normal;
+    margin: 0;
+    padding: 0;
+}
+
+.t-dim {
+    color: rgb(141, 151, 160);
+}
+
+.t-amber {
+    color: rgb(232, 160, 74);
+}
+
+.t-small {
+    font-size: 24px;
+}
+
+.t-tiny {
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+
+.t-large {
+    font-size: 38px;
+}
+
+.t-head {
+    font-size: 46px;
+    letter-spacing: 8px;
+}
+
+.t-center {
+    -unity-text-align: middle-center;
+}
+
+.t-right {
+    -unity-text-align: middle-right;
+}
+
+.vchar {
+    font-size: 120px;
+    color: rgb(236, 230, 216);
+    -unity-text-align: middle-center;
+    width: 150px;
+    height: 136px;
+    margin: 0;
+    padding: 0;
+}
+
+.vchar-small {
+    font-size: 34px;
+    color: rgb(170, 180, 188);
+    -unity-text-align: middle-center;
+    width: 46px;
+    height: 44px;
+    margin: 0;
+    padding: 0;
+}
+
+.vchar-verdict {
+    font-size: 150px;
+    -unity-text-align: middle-center;
+    width: 190px;
+    height: 170px;
+    margin: 0;
+    padding: 0;
+}
+
+.c-fulfilled {
+    color: rgb(171, 201, 160);
+}
+
+.c-incomplete {
+    color: rgb(200, 205, 208);
+}
+
+.c-distorted {
+    color: rgb(214, 84, 70);
+}
+
+/* ---- 枠 ---- */
+
+.panel {
+    background-color: rgba(9, 13, 18, 0.74);
+    border-width: 1px;
+    border-color: rgba(230, 224, 210, 0.16);
+    border-radius: 4px;
+    padding: 28px 36px;
+}
+
+.panel-soft {
+    background-color: rgba(9, 13, 18, 0.5);
+    border-width: 0;
+    border-radius: 4px;
+    padding: 18px 26px;
+}
+
+.rule {
+    height: 1px;
+    background-color: rgba(230, 224, 210, 0.2);
+    margin-top: 14px;
+    margin-bottom: 14px;
+}
+
+.overlay {
+    background-color: rgba(4, 6, 9, 0.78);
+    align-items: center;
+    justify-content: center;
+}
+
+.overlay-panel {
+    width: 1180px;
+    background-color: rgba(14, 19, 26, 0.97);
+    border-width: 1px;
+    border-color: rgba(232, 160, 74, 0.4);
+    border-radius: 4px;
+    padding: 34px 40px;
+}
+
+/* ---- 押すもの ---- */
+
+.btn {
+    color: rgb(230, 224, 210);
+    font-size: 30px;
+    background-color: rgba(12, 17, 23, 0.72);
+    border-width: 1px;
+    border-color: rgba(230, 224, 210, 0.28);
+    border-radius: 3px;
+    padding: 14px 34px;
+    margin: 8px;
+    -unity-text-align: middle-center;
+    letter-spacing: 3px;
+    transition-property: background-color, border-color, color;
+    transition-duration: 0.18s;
+}
+
+.btn:hover {
+    background-color: rgba(232, 160, 74, 0.16);
+    border-color: rgba(232, 160, 74, 0.85);
+    color: rgb(255, 226, 180);
+}
+
+.btn:active {
+    background-color: rgba(232, 160, 74, 0.32);
+}
+
+.btn:focus {
+    border-color: rgba(232, 160, 74, 0.85);
+}
+
+.btn:disabled {
+    opacity: 0.35;
+}
+
+.btn-main {
+    border-color: rgba(232, 160, 74, 0.7);
+    color: rgb(255, 226, 180);
+    padding: 16px 48px;
+}
+
+.btn-quiet {
+    border-color: rgba(230, 224, 210, 0.12);
+    color: rgb(170, 180, 188);
+    font-size: 26px;
+}
+
+.btn-menu {
+    width: 420px;
+    font-size: 34px;
+    padding: 18px 0;
+    margin: 10px 0;
+    letter-spacing: 8px;
+}
+
+.chip {
+    color: rgb(170, 180, 188);
+    font-size: 24px;
+    background-color: rgba(12, 17, 23, 0.6);
+    border-width: 1px;
+    border-color: rgba(230, 224, 210, 0.18);
+    border-radius: 3px;
+    padding: 8px 14px;
+    margin: 4px;
+    -unity-text-align: middle-center;
+    transition-property: background-color, border-color, color;
+    transition-duration: 0.15s;
+}
+
+.chip:hover {
+    border-color: rgba(232, 160, 74, 0.7);
+    color: rgb(255, 226, 180);
+}
+
+.chip.on {
+    background-color: rgba(232, 160, 74, 0.26);
+    border-color: rgb(232, 160, 74);
+    color: rgb(255, 236, 205);
+}
+
+.chip-value {
+    min-width: 250px;
+    color: rgb(230, 224, 210);
+    border-color: rgba(230, 224, 210, 0.34);
+}
+
+.chip-empty {
+    color: rgb(141, 151, 160);
+}
+
+.chip-term {
+    font-size: 28px;
+    padding: 12px 20px;
+    margin: 7px;
+    color: rgb(230, 224, 210);
+}
+
+/* ---- 題字 ---- */
+
+.title-latin {
+    font-size: 22px;
+    letter-spacing: 14px;
+    color: rgb(141, 151, 160);
+}
+
+.title-sub {
+    font-size: 34px;
+    letter-spacing: 16px;
+    color: rgb(200, 205, 208);
+}
+
+.lore {
+    font-size: 26px;
+    color: rgb(170, 180, 188);
+    letter-spacing: 3px;
+}
+
+/* ---- 会話 ---- */
+
+.plate-glyph {
+    width: 92px;
+    height: 92px;
+    border-radius: 46px;
+    border-width: 1px;
+    border-color: rgba(230, 224, 210, 0.5);
+    background-color: rgba(9, 13, 18, 0.6);
+    align-items: center;
+    justify-content: center;
+    margin-right: 24px;
+}
+
+.plate-glyph-text {
+    font-size: 46px;
+    color: rgb(236, 230, 216);
+    -unity-text-align: middle-center;
+}
+
+.speech {
+    font-size: 46px;
+    color: rgb(240, 234, 220);
+    white-space: normal;
+    letter-spacing: 3px;
+    -unity-text-align: middle-center;
+}
+
+/* 語り終えた言葉は霧に溶ける。消えるときだけゆっくり、現れるときは即座に */
+.speech.gone {
+    opacity: 0;
+    transition-property: opacity;
+    transition-duration: 1.4s;
+}
+
+.speech-box {
+    height: 360px;
+    padding: 0 90px;
+    align-items: center;
+    justify-content: center;
+}
+
+.narration {
+    font-size: 28px;
+    color: rgb(170, 180, 188);
+    -unity-text-align: middle-center;
+    letter-spacing: 3px;
+}
+
+.flame {
+    width: 22px;
+    height: 30px;
+    border-radius: 11px;
+    margin-left: 10px;
+    background-color: rgb(240, 172, 86);
+    border-width: 1px;
+    border-color: rgb(255, 220, 160);
+}
+
+.flame.out {
+    background-color: rgba(0, 0, 0, 0);
+    border-color: rgba(230, 224, 210, 0.28);
+}
+
+/* ---- 整理 ---- */
+
+.slot-row {
+    flex-direction: row;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom-width: 1px;
+    border-bottom-color: rgba(230, 224, 210, 0.09);
+}
+
+.slot-label {
+    width: 190px;
+    font-size: 30px;
+    color: rgb(236, 230, 216);
+    letter-spacing: 4px;
+}
+
+/* ---- 判定 ---- */
+
+.card {
+    background-color: rgba(9, 13, 18, 0.62);
+    border-left-width: 3px;
+    border-left-color: rgba(230, 224, 210, 0.25);
+    padding: 14px 22px;
+    margin-bottom: 12px;
+}
+
+.card-a {
+    border-left-color: rgb(214, 84, 70);
+}
+
+.card-b {
+    border-left-color: rgb(232, 160, 74);
+}
+
+.card-c {
+    border-left-color: rgb(170, 180, 188);
+}
+
+.card-none {
+    border-left-color: rgba(171, 201, 160, 0.7);
+}
+
+.tag {
+    font-size: 20px;
+    padding: 2px 10px;
+    margin-left: 12px;
+    border-radius: 2px;
+    border-width: 1px;
+    border-color: rgba(230, 224, 210, 0.35);
+    color: rgb(200, 205, 208);
+}
+
+.tag-a {
+    border-color: rgb(214, 84, 70);
+    color: rgb(236, 130, 116);
+}
+
+.tag-b {
+    border-color: rgb(232, 160, 74);
+    color: rgb(240, 186, 116);
+}
+
+.quote {
+    font-size: 26px;
+    color: rgb(214, 208, 194);
+    white-space: normal;
+}
+
+.meter {
+    height: 8px;
+    background-color: rgba(230, 224, 210, 0.12);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.meter-fill {
+    height: 8px;
+    background-color: rgb(232, 160, 74);
+    border-radius: 4px;
+}
+
+.skill-cell {
+    width: 196px;
+    margin: 6px 8px;
+}

@@ -1,0 +1,16 @@
+{
+    "name": "Receive.Game",
+    "rootNamespace": "Receive.Game",
+    "references": [
+        "Receive.Core"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
