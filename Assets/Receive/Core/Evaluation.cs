@@ -251,7 +251,7 @@ namespace Receive.Core
                 case FindingType.UnneededGuess: return "余計な推し量り";
                 case FindingType.FalseGap: return "漏らしたと思い込んだ";
                 case FindingType.Distortion: return "歪曲";
-                default: return "歪曲（自ら覆した）";
+                default: return "歪曲（自ら崩した）";
             }
         }
 

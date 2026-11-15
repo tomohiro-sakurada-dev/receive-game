@@ -1,7 +1,7 @@
 // 端末版。Unity と同じ中核（Assets/Receive/Core）で、同じ試練を文字だけで遊ぶ。
 // Unity が無い環境でも、最後まで遊べること・規則が動くことを確かめるためのもの。
 //
-//   dotnet run --project dotnet/Receive.Console            … 遊ぶ
+//   dotnet run --project dotnet/Receive.Console            … 遊ぶ（RECEIVE_SEED で種を、RECEIVE_LOG で聴き帳の場所を指定できる）
 //   dotnet run --project dotnet/Receive.Console -- sample 5 3   … 段3のシナリオを5本、正解つきで表示
 //   dotnet run --project dotnet/Receive.Console -- demo         … 自動の手本を表示
 using System;
@@ -65,7 +65,9 @@ internal static class Program
     private static void Play()
     {
         var log = LoadLog();
-        var session = new GameSession(log, DateTime.UtcNow.Ticks);
+        long seed;
+        if (!long.TryParse(Environment.GetEnvironmentVariable("RECEIVE_SEED"), out seed)) seed = DateTime.UtcNow.Ticks;
+        var session = new GameSession(log, seed);
         Console.WriteLine();
         Console.WriteLine("　霧音の国　——　PROJECT RECEIVE（端末版）");
         Console.WriteLine("　この国の霧は墨を溶かす。言葉は、口から口へ運ぶしかない。");
@@ -232,7 +234,14 @@ internal static class Program
     {
         Console.Write(prompt);
         string s = Console.ReadLine();
-        return s == null ? null : s.Trim();
+        if (s == null)
+        {
+            // 入力が閉じられた。待ち続けずに終わる
+            Console.WriteLine();
+            Console.WriteLine("（入力が終わったので、ここで閉じる）");
+            Environment.Exit(0);
+        }
+        return s.Trim();
     }
 
     private static TrainingLog LoadLog()
