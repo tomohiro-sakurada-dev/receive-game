@@ -107,3 +107,8 @@ InitTestScene*.unity*
 
 # Auto-generated cache in Assets folder
 /[Aa]ssets/[Ss]ceneDependencyCache*
+
+# PROJECT RECEIVE: Unity の外で中核を検査・実行するための .NET プロジェクト
+!/dotnet/**/*.csproj
+/dotnet/**/bin/
+/dotnet/**/obj/

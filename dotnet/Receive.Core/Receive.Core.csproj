@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!-- Unity の中核コード（Assets/Receive/Core）を、Unity なしでビルド・検査するためのプロジェクト。 -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <EnableDefaultCompileItems>false</EnableDefaultCompileItems>
+    <RootNamespace>Receive.Core</RootNamespace>
+    <AssemblyName>Receive.Core</AssemblyName>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="../../Assets/Receive/Core/**/*.cs" />
+  </ItemGroup>
+</Project>
